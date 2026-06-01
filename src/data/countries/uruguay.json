@@ -1,0 +1,719 @@
+{
+  "country": "Uruguay",
+  "iso_code": "URY",
+  "region": "South America",
+  "subregion": "Southern Cone",
+  "evaluation_date": "2026-06-01",
+  "evaluated_by": "Human researched draft using official and institutional sources",
+  "overall_summary": "Uruguay is a relatively stable, institutionally strong Southern Cone relocation candidate with good legal residency optionality, strong civil liberties, functional infrastructure, and a favorable electricity/resource profile. Its main tradeoffs are higher regional costs, a small market, property-crime concerns in specific departments, limited direct U.S. flight connectivity, and the need for professional tax/banking review for U.S. citizens.",
+  "best_for": ["Balanced Relocation", "Wealth Preservation", "Family and Aging", "Low Geopolitical Exposure"],
+  "bad_for": ["Maximum Cost Arbitrage", "Large Local Market", "Direct U.S. Flight Access"],
+  "major_strengths": [
+    "Official residency pathways include permanent and temporary routes for non-Mercosur foreigners.",
+    "Freedom House rates Uruguay Free with very high political-rights and civil-liberties scores.",
+    "Renewable electricity and high electricity access support resource resilience."
+  ],
+  "major_weaknesses": [
+    "Cost of living is less favorable than lower-cost Latin American alternatives.",
+    "The U.S. State Department advises increased caution due to crime.",
+    "U.S. citizens need professional tax and banking advice before treating Uruguay as a wealth-preservation base."
+  ],
+  "major_risks": ["Property Crime", "Higher Regional Costs", "Small Market", "Tax/Banking Complexity"],
+  "open_questions": [
+    "Confirm practical account-opening experience for U.S. citizens under FATCA constraints.",
+    "Verify current private health insurance pricing for older foreign residents.",
+    "Check current rental costs in Montevideo, Punta del Este, and smaller cities before assigning researched cost scores above Medium confidence."
+  ],
+  "data_gaps": [
+    "Fresh city-level cost-of-living and rental data needed.",
+    "Fresh private healthcare and elder-care pricing needed.",
+    "More direct source review needed for foreign property transaction friction."
+  ],
+  "category_scores": [
+    {
+      "category_id": "legal_residency",
+      "category_name": "Legal Residency and Immigration",
+      "score": 8,
+      "confidence": "High",
+      "rationale": "Uruguay has official permanent and temporary residency processes, and the Ministry of Interior states that applicants who meet criteria may apply directly for permanent residency without first holding temporary residency. For Americans, the pathway is not as automatic as Mercosur residency, but it is unusually legible for the region.",
+      "strengths": ["Permanent residency is available to non-Mercosur foreigners.", "Temporary residency can cover stays over 180 days and up to two years.", "Provisional identity card rules can support limited work authorization while status is processed."],
+      "weaknesses": ["Document collection, apostilles, criminal background checks, and translation requirements add bureaucracy.", "Citizenship/nationality treatment requires separate review before treating passport optionality as straightforward."],
+      "regional_caveats": ["Montevideo is the practical center for many immigration and professional-service processes."],
+      "key_metrics": [
+        {
+          "label": "Permanent residency availability",
+          "value": "Available to foreigners intending to reside permanently",
+          "source": "https://www.gub.uy/ministerio-interior/comunicacion/publicaciones/types-of-residencies-in-uruguay",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Official Ministry of Interior English guidance."
+        },
+        {
+          "label": "Permanent residency requirements",
+          "value": "Identity document and national criminal background certificate among required documents",
+          "source": "https://www.gub.uy/tramites/residencia-legal-permanente",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Official process page; applicant-specific requirements should be checked before filing."
+        }
+      ],
+      "source_notes": ["Official Ministry of Interior residency guidance reviewed."],
+      "data_gaps": ["Confirm 2026 processing times and recent applicant friction for U.S. citizens."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "tax_treatment",
+      "category_name": "Tax System and Wealth Treatment",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay has an official tax-holiday option for new tax residents covering certain foreign movable-capital income, with an election between IRNR treatment for the arrival year plus ten following fiscal years or a reduced 7% IRPF rate without time limit. This is attractive but narrow, and U.S. citizens still need U.S. tax and reporting advice.",
+      "strengths": ["Official DGI guidance describes favorable options for new tax residents.", "Tax rules are more legible than influencer summaries suggest when official DGI guidance is used."],
+      "weaknesses": ["The benefit applies to specified foreign movable-capital income and does not eliminate U.S. citizen tax/reporting obligations.", "Labor income, business structure, controlled companies, and treaty positions require professional advice."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Tax holiday option",
+          "value": "IRNR for change-of-residence year plus ten following fiscal years, or 7% IRPF without time limit for qualifying foreign movable-capital income",
+          "source": "https://www.gub.uy/direccion-general-impositiva/comunicacion/publicaciones/tax-holidays-opcion-para-nuevos-residentes-fiscales-uruguay",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Official DGI guidance dated 2025-10-15."
+        }
+      ],
+      "source_notes": ["Official DGI tax-holiday guidance reviewed; not tax advice."],
+      "data_gaps": ["Need professional review for U.S. citizen worldwide taxation, FBAR/FATCA, treaty use, and local tax residency certificate strategy."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "cost_of_living",
+      "category_name": "Cost of Living vs U.S.",
+      "score": 5,
+      "confidence": "Low",
+      "rationale": "Uruguay is not a maximum cost-arbitrage destination by regional standards. It may still be cheaper than major U.S. metros for some lifestyles, but housing, imported goods, cars, energy, and premium coastal areas can limit savings.",
+      "strengths": ["Potentially cheaper than expensive U.S. metro lifestyles.", "Predictability and safety may justify higher costs for some users."],
+      "weaknesses": ["Small market and import dependence can raise prices.", "Current rental and private healthcare data are needed before raising confidence."],
+      "regional_caveats": ["Montevideo, Punta del Este, and smaller inland cities can produce very different budgets."],
+      "key_metrics": [],
+      "source_notes": ["No fresh local price survey has been completed in this draft."],
+      "data_gaps": ["Collect current rents, grocery prices, private insurance costs, school fees, utilities, and imported-goods prices."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "currency_banking",
+      "category_name": "Currency and Banking Stability",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay appears comparatively strong regionally on monetary and banking stability. The Ministry of Economy and Finance reports declining inflation expectations and a Central Bank policy rate cut to support convergence toward the BCU target. For U.S. citizens, practical bank access remains a separate FATCA-driven question.",
+      "strengths": ["More stable monetary environment than high-inflation regional alternatives.", "Central bank and government publish clear policy materials."],
+      "weaknesses": ["Small financial market.", "American account opening and reporting friction must be verified directly with banks."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Monetary policy rate",
+          "value": "5.75% after cumulative 175 bps cuts in early 2026",
+          "source": "https://www.mef.gub.uy/innovaportal/file/32130/1/uruguay-institutional-presentation_march-2026.pdf",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Ministry of Economy and Finance institutional presentation citing Central Bank of Uruguay."
+        }
+      ],
+      "source_notes": ["MEF/BCU monetary policy material reviewed."],
+      "data_gaps": ["Confirm current foreigner and U.S.-citizen account-opening policies at major banks."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "economy_opportunity",
+      "category_name": "Economy and Opportunity",
+      "score": 6,
+      "confidence": "Medium",
+      "rationale": "Uruguay is a high-income, institutionally solid small economy. It offers predictability and niches in finance, services, agriculture, forestry, logistics, green energy, and regional operations, but it lacks the scale and underpriced volatility of larger frontier markets.",
+      "strengths": ["World Bank describes Uruguay as a high-income country.", "Institutional strength supports lower-drama business operations."],
+      "weaknesses": ["Small domestic market limits local upside.", "High local costs can reduce startup cost advantages."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "World Bank country classification context",
+          "value": "High-income country with remaining last-mile development challenges",
+          "source": "https://www.worldbank.org/ext/en/country/uruguay",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "World Bank country overview."
+        }
+      ],
+      "source_notes": ["World Bank Uruguay overview reviewed."],
+      "data_gaps": ["Review current sector-specific opportunities and business-formation costs."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "income_portability",
+      "category_name": "Employment and Income Portability",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay fits remote U.S.-time-zone income reasonably well, with high internet penetration and strong fixed broadband speed signals. It is less compelling for local employment arbitrage because wages and market depth are limited compared with the U.S.",
+      "strengths": ["Americas time-zone compatibility.", "High internet adoption and strong fixed broadband speed signals."],
+      "weaknesses": ["Small local job market.", "Payment processor, company formation, and tax treatment need user-specific review."],
+      "regional_caveats": ["Montevideo likely offers the best professional services and coworking ecosystem."],
+      "key_metrics": [
+        {
+          "label": "Internet penetration",
+          "value": "93.0% at the start of 2025",
+          "source": "https://datareportal.com/reports/digital-2025-uruguay",
+          "source_tier": "Tier 3",
+          "date_accessed": "2026-06-01",
+          "notes": "DataReportal/Kepios synthesis; useful but not official government data."
+        },
+        {
+          "label": "Median fixed internet download speed",
+          "value": "159.80 Mbps at the beginning of 2025",
+          "source": "https://datareportal.com/reports/digital-2025-uruguay",
+          "source_tier": "Tier 3",
+          "date_accessed": "2026-06-01",
+          "notes": "DataReportal reports Ookla figures."
+        }
+      ],
+      "source_notes": ["Digital connectivity data reviewed from DataReportal/Ookla synthesis."],
+      "data_gaps": ["Verify payment processor availability and remote-work tax treatment for specific business models."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "climate_resilience",
+      "category_name": "Climate and Climate Change Resilience",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay has a relatively favorable temperate profile compared with hotter and more disaster-exposed countries, but drought, flood, coastal, agricultural, and insurance risks need local review. The World Bank notes Uruguay's climate-finance leadership, which supports adaptation capacity but does not remove physical risk.",
+      "strengths": ["Temperate location.", "Institutional climate-finance engagement.", "Regional climate variation is manageable for relocation planning."],
+      "weaknesses": ["Drought, flooding, coastal exposure, and agricultural stress require subnational analysis.", "Property insurance and water-security signals need deeper review."],
+      "regional_caveats": ["Coastal, Montevideo, interior, and agricultural areas should be evaluated separately."],
+      "key_metrics": [
+        {
+          "label": "Climate finance signal",
+          "value": "World Bank describes Uruguay as a pioneer in innovative climate finance",
+          "source": "https://www.worldbank.org/ext/en/country/uruguay",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Institutional adaptation/finance signal, not a physical-risk score."
+        }
+      ],
+      "source_notes": ["World Bank Uruguay climate-finance context reviewed."],
+      "data_gaps": ["Add World Bank Climate Knowledge Portal subnational risk details and insurance availability by area."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "food_water_energy",
+      "category_name": "Food, Water, and Energy Security",
+      "score": 8,
+      "confidence": "Medium",
+      "rationale": "Uruguay has strong agricultural capacity and an unusually renewable-heavy electricity system. IRENA reports 100% population access to electricity and a high renewable share of total energy supply, supporting resilience. Water and drought exposure still need region-specific review.",
+      "strengths": ["Strong agricultural/export base.", "High electricity access.", "Renewable-heavy electricity system improves energy-security profile."],
+      "weaknesses": ["Drought risk can affect hydropower and agriculture.", "Transport fuels and some energy inputs remain exposed to imports."],
+      "regional_caveats": ["Water and agricultural resilience vary by basin and land use."],
+      "key_metrics": [
+        {
+          "label": "Access to electricity",
+          "value": "100% population access shown in IRENA energy profile",
+          "source": "https://www.irena.org/-/media/Files/IRENA/Agency/Statistics/Statistical_Profiles/South%20America/Uruguay_South%20America_RE_SP.pdf",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "IRENA country energy profile."
+        },
+        {
+          "label": "Renewable energy supply",
+          "value": "55% of total energy supply in 2022",
+          "source": "https://www.irena.org/-/media/Files/IRENA/Agency/Statistics/Statistical_Profiles/South%20America/Uruguay_South%20America_RE_SP.pdf",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Total energy supply, not only electricity generation."
+        }
+      ],
+      "source_notes": ["IRENA energy profile and FAO country-profile context reviewed."],
+      "data_gaps": ["Add current water-stress, drought, and food-production balance sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "geopolitical_risk",
+      "category_name": "Geopolitical Risk and International Relations",
+      "score": 8,
+      "confidence": "Medium",
+      "rationale": "Uruguay is relatively insulated from major war, sanctions, and great-power flashpoints. Its main geopolitical risks are indirect: regional macro spillovers, trade dependence, and global commodity conditions.",
+      "strengths": ["Low conflict centrality.", "Generally cooperative international posture.", "No obvious major-power flashpoint exposure."],
+      "weaknesses": ["Small open economy exposed to regional and global shocks.", "Trade and logistics dependencies matter."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Country risk context",
+          "value": "No U.S. advisory for war, terrorism, or civil unrest; advisory concern is crime",
+          "source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/uruguay-travel-advisory.html",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Travel advisory is not a geopolitical-risk index but helps identify named U.S. government concerns."
+        }
+      ],
+      "source_notes": ["U.S. State Department advisory reviewed for named risk type."],
+      "data_gaps": ["Add regional trade exposure and diplomatic alignment sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "political_stability",
+      "category_name": "Domestic Political Stability",
+      "score": 8,
+      "confidence": "High",
+      "rationale": "Uruguay has one of Latin America's strongest democratic governance records. Freedom House rates it Free with 96/100 overall, and notes peaceful 2024 elections accepted by stakeholders, while still flagging media, prison, and representation concerns.",
+      "strengths": ["Very strong political-rights and civil-liberties rating.", "Peaceful electoral transfer and institutional continuity.", "Policy environment is comparatively predictable."],
+      "weaknesses": ["Small-country politics can still shift tax, housing, or investment rules.", "Freedom House notes persistent issues around media pressure, courts, prisons, and representation."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Freedom in the World 2025",
+          "value": "Free; 96/100 overall, 40/40 political rights, 56/60 civil liberties",
+          "source": "https://freedomhouse.org/country/uruguay/freedom-world/2025",
+          "source_tier": "Tier 2",
+          "date_accessed": "2026-06-01",
+          "notes": "Freedom House comparative civil/political rights assessment."
+        }
+      ],
+      "source_notes": ["Freedom House 2025 Uruguay report reviewed."],
+      "data_gaps": ["Add World Bank governance indicators and local-policy continuity review."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "safety",
+      "category_name": "Safety and Personal Security",
+      "score": 6,
+      "confidence": "High",
+      "rationale": "Uruguay is safer and more stable than many regional alternatives, but the U.S. State Department currently rates it Level 2 due to crime and names Montevideo, Canelones, Maldonado, and Rivera as departments where crime is most common. This warrants a mixed score rather than a blanket safe-country label.",
+      "strengths": ["No broad U.S. warning for terrorism, war, or civil unrest.", "Risk appears manageable with location selection and normal urban precautions."],
+      "weaknesses": ["Property crime and armed robberies are material concerns.", "Road safety is also a notable risk."],
+      "regional_caveats": ["Montevideo, Canelones, Maldonado, and Rivera require extra neighborhood-level review."],
+      "key_metrics": [
+        {
+          "label": "U.S. travel advisory",
+          "value": "Level 2: Exercise Increased Caution due to crime",
+          "source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/uruguay-travel-advisory.html",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Advisory dated May 7, 2025."
+        },
+        {
+          "label": "Road safety note",
+          "value": "Traffic deaths noted as a major safety issue",
+          "source": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Uruguay.html",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "U.S. country information page cites WHO and Uruguayan road-safety context."
+        }
+      ],
+      "source_notes": ["U.S. State Department travel advisory and country information reviewed."],
+      "data_gaps": ["Add current official homicide, robbery, and neighborhood-level safety data."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "healthcare",
+      "category_name": "Healthcare Quality and Access",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay has a developed health system and WHO country presence/profile material, making it plausible for many long-term residents. The score remains Medium confidence until current private insurance, specialist, prescription, and elder-care costs for foreigners are gathered.",
+      "strengths": ["Developed national health system relative to the region.", "Montevideo likely offers the strongest specialist access."],
+      "weaknesses": ["Private insurance and elder-care pricing need fresh review.", "Rural/smaller-city specialist access may be weaker."],
+      "regional_caveats": ["Montevideo is likely the strongest healthcare base; coastal and rural areas need separate review."],
+      "key_metrics": [
+        {
+          "label": "WHO country profile availability",
+          "value": "WHO maintains Uruguay country health profile and publications",
+          "source": "https://www.who.int/countries/ury",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Used as source ecosystem signal, not a private-care price source."
+        }
+      ],
+      "source_notes": ["WHO Uruguay country page reviewed."],
+      "data_gaps": ["Collect current private hospital, insurance, specialist, and elder-care sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "infrastructure",
+      "category_name": "Infrastructure and Basic Services",
+      "score": 8,
+      "confidence": "Medium",
+      "rationale": "Uruguay has strong electricity access and good digital connectivity signals, supporting remote work and normal daily life. Road safety and small-market logistics remain weaknesses.",
+      "strengths": ["100% electricity access in IRENA profile.", "High internet penetration and strong fixed broadband speed signals.", "Functional urban services in Montevideo and major areas."],
+      "weaknesses": ["Road safety issues are notable.", "Small-market logistics and imported goods can be expensive or slow."],
+      "regional_caveats": ["Infrastructure quality and healthcare/logistics access are likely strongest around Montevideo and major coastal areas."],
+      "key_metrics": [
+        {
+          "label": "Electricity access",
+          "value": "100% population access",
+          "source": "https://www.irena.org/-/media/Files/IRENA/Agency/Statistics/Statistical_Profiles/South%20America/Uruguay_South%20America_RE_SP.pdf",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "IRENA energy profile."
+        },
+        {
+          "label": "Median fixed broadband speed",
+          "value": "159.80 Mbps at beginning of 2025",
+          "source": "https://datareportal.com/reports/digital-2025-uruguay",
+          "source_tier": "Tier 3",
+          "date_accessed": "2026-06-01",
+          "notes": "DataReportal reports Ookla figures."
+        }
+      ],
+      "source_notes": ["IRENA and DataReportal/Ookla connectivity data reviewed."],
+      "data_gaps": ["Add postal/logistics, port, water, and public transit source review."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "property_rights",
+      "category_name": "Housing, Land, and Property Rights",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay's rule-of-law and institutional indicators support a strong regional property-rights thesis, but foreign buyers still need local legal review on title, taxes, costs, and liquidity. This score should not be read as a recommendation to buy property.",
+      "strengths": ["Comparatively strong rule-of-law environment.", "Foreign ownership is commonly described as practical, but must be verified with counsel."],
+      "weaknesses": ["Transaction costs, title diligence, local taxes, liquidity, and coastal-market pricing require current legal review.", "Real estate agent claims should not be treated as neutral evidence."],
+      "regional_caveats": ["Punta del Este/coastal markets may behave differently from Montevideo or inland towns."],
+      "key_metrics": [
+        {
+          "label": "Rule of law signal",
+          "value": "Uruguay appears in WJP Rule of Law Index country materials with strong regional positioning",
+          "source": "https://worldjusticeproject.org/rule-of-law-index/country/2024/Uruguay/",
+          "source_tier": "Tier 2",
+          "date_accessed": "2026-06-01",
+          "notes": "Use WJP as institutional/legal-system signal; property-specific legal review still needed."
+        }
+      ],
+      "source_notes": ["WJP country material reviewed as rule-of-law signal."],
+      "data_gaps": ["Add official registry/legal sources for foreign ownership, title process, property taxes, and coastal restrictions."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "culture_language",
+      "category_name": "Culture, Language, and Social Fit",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay offers a calmer, institutionally stable, Spanish-speaking culture that may fit Americans seeking lower-drama daily life. Integration still depends heavily on Spanish and personal fit with a smaller, quieter country.",
+      "strengths": ["Calm lifestyle and social stability may suit long-term residents.", "Manageable scale and strong civic culture."],
+      "weaknesses": ["Spanish matters for integration.", "People seeking intense nightlife, large tech ecosystems, or broad English usability may feel constrained."],
+      "regional_caveats": ["Montevideo, coastal towns, and inland towns offer different social experiences."],
+      "key_metrics": [],
+      "source_notes": ["This category remains partly subjective and should be validated through test stays."],
+      "data_gaps": ["Add English proficiency, expat retention, and on-the-ground integration sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "family_suitability",
+      "category_name": "Education and Family Suitability",
+      "score": 7,
+      "confidence": "Low",
+      "rationale": "Uruguay's stability, safety profile, healthcare baseline, and livable scale make it plausible for families, but the category needs current school, childcare, neighborhood, and child-healthcare data before confidence can rise.",
+      "strengths": ["Political and social stability supports household planning.", "Manageable urban scale may fit some families."],
+      "weaknesses": ["International school costs and availability need review.", "Property crime and road safety matter for family life."],
+      "regional_caveats": ["Schooling options will concentrate in Montevideo and certain coastal areas."],
+      "key_metrics": [],
+      "source_notes": ["No current school-cost review completed in this draft."],
+      "data_gaps": ["Collect international school, private school, childcare, pediatric care, and family neighborhood sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "global_connectivity",
+      "category_name": "Transportation and Global Connectivity",
+      "score": 6,
+      "confidence": "Medium",
+      "rationale": "Uruguay has usable regional connectivity but weaker direct U.S. access than larger hubs. The U.S. country information page notes no direct commercial air service to the United States by carriers registered in Uruguay, underscoring that global connectivity is functional but not exceptional.",
+      "strengths": ["Regional access to Argentina, Brazil, and the Southern Cone.", "Montevideo provides the main international gateway."],
+      "weaknesses": ["Limited direct U.S. flight depth.", "Emergency travel may require connections through larger hubs."],
+      "regional_caveats": ["Montevideo and Punta del Este access differ by season and route availability."],
+      "key_metrics": [
+        {
+          "label": "Direct U.S. carrier note",
+          "value": "No direct commercial air service to the U.S. by carriers registered in Uruguay noted by State Department country page",
+          "source": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Uruguay.html",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "This is not a full route map; verify current flights before planning."
+        }
+      ],
+      "source_notes": ["U.S. State Department country information page reviewed."],
+      "data_gaps": ["Add current flight route/cost data for U.S., Europe, Buenos Aires, São Paulo, and regional hubs."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "digital_freedom",
+      "category_name": "Technology, Censorship, and Digital Freedom",
+      "score": 8,
+      "confidence": "Medium",
+      "rationale": "Uruguay's strong civil-liberties environment and high internet adoption make it a strong digital-freedom candidate. The score remains below exceptional until payment processor, data privacy, and online business constraints are checked in detail.",
+      "strengths": ["High civil liberties score.", "High internet penetration.", "No obvious censorship red flags from reviewed sources."],
+      "weaknesses": ["Payment processor access and business tooling need practical verification.", "Small domestic tech market."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Internet penetration",
+          "value": "93.0% at start of 2025",
+          "source": "https://datareportal.com/reports/digital-2025-uruguay",
+          "source_tier": "Tier 3",
+          "date_accessed": "2026-06-01",
+          "notes": "Useful connectivity signal."
+        },
+        {
+          "label": "Civil liberties",
+          "value": "56/60 in Freedom House 2025",
+          "source": "https://freedomhouse.org/country/uruguay/freedom-world/2025",
+          "source_tier": "Tier 2",
+          "date_accessed": "2026-06-01",
+          "notes": "Broad civil-liberties signal."
+        }
+      ],
+      "source_notes": ["Freedom House and DataReportal reviewed."],
+      "data_gaps": ["Add current digital rights, data privacy, payment processor, and company-formation review."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "civil_liberties",
+      "category_name": "Personal Freedom and Civil Liberties",
+      "score": 9,
+      "confidence": "High",
+      "rationale": "Freedom House gives Uruguay one of the strongest civil and political freedom profiles in the region, rating it Free with 96/100 overall. This supports a high civil-liberties score while still noting specific issues around media, courts, prisons, and marginalized representation.",
+      "strengths": ["Very high Freedom House score.", "Strong democratic governance tradition.", "Peaceful elections and strong political rights."],
+      "weaknesses": ["Freedom House notes persistent issues with journalist pressure, court delays, prison conditions, and representation."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Freedom House 2025",
+          "value": "Free; 96/100 overall",
+          "source": "https://freedomhouse.org/country/uruguay/freedom-world/2025",
+          "source_tier": "Tier 2",
+          "date_accessed": "2026-06-01",
+          "notes": "Comparative political rights and civil liberties assessment."
+        }
+      ],
+      "source_notes": ["Freedom House 2025 Uruguay report reviewed."],
+      "data_gaps": ["Add local legal context for privacy, self-defense, emergency powers, and foreigner treatment."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "state_capacity",
+      "category_name": "State Capacity and Public Services",
+      "score": 8,
+      "confidence": "Medium",
+      "rationale": "Uruguay's institutional strength, electricity access, high-income status, and public-service capacity support a strong state-capacity score. Remaining caveats include prison conditions, court delays, and the need to compare actual local service delivery across regions.",
+      "strengths": ["Capable institutions relative to the region.", "High electricity access and strong public data/source ecosystem.", "World Bank engagement emphasizes institutional strengthening and last-mile development."],
+      "weaknesses": ["Court delays and prison issues indicate capacity gaps.", "Small-country service depth can vary by location."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "World Bank context",
+          "value": "High-income country with last-mile development challenges",
+          "source": "https://www.worldbank.org/ext/en/country/uruguay",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Development context, not a direct public-services score."
+        }
+      ],
+      "source_notes": ["World Bank and Freedom House governance context reviewed."],
+      "data_gaps": ["Add World Bank governance indicators and local public-service reliability data."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "legal_system",
+      "category_name": "Legal System and Dispute Resolution",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay's broader rule-of-law and civil-liberties profile supports a favorable legal-system score, but court delays and the need for local counsel keep it below exceptional for contracts, property, and estate planning.",
+      "strengths": ["Strong rule-of-law signal for the region.", "Institutional environment is more predictable than many alternatives."],
+      "weaknesses": ["Court delays are noted by Freedom House.", "Foreigners need local legal counsel for property, inheritance, business, and residency matters."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Rule of law country material",
+          "value": "WJP Uruguay country profile available",
+          "source": "https://worldjusticeproject.org/rule-of-law-index/country/2024/Uruguay/",
+          "source_tier": "Tier 2",
+          "date_accessed": "2026-06-01",
+          "notes": "Use alongside local counsel, not as a replacement for legal advice."
+        }
+      ],
+      "source_notes": ["WJP and Freedom House legal-system context reviewed."],
+      "data_gaps": ["Add current contract enforcement, court timing, notary, inheritance, and arbitration sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "community_networks",
+      "category_name": "Community and Network Effects",
+      "score": 6,
+      "confidence": "Low",
+      "rationale": "Uruguay has expat, professional, and regional networks, but the market and foreign-resident ecosystem are smaller than larger hubs. This may be a strength for people seeking calm community and a weakness for high-growth operators.",
+      "strengths": ["Manageable size may make networks navigable.", "Regional professional services exist in Montevideo."],
+      "weaknesses": ["Smaller entrepreneurial and expat network than Mexico City, Buenos Aires, São Paulo, Lisbon, or Madrid.", "Needs on-the-ground validation."],
+      "regional_caveats": ["Montevideo and Punta del Este likely have very different network profiles."],
+      "key_metrics": [],
+      "source_notes": ["Insufficient direct source review; score is conservative."],
+      "data_gaps": ["Research expat retention, entrepreneur communities, coworking, professional associations, and long-term foreign-resident networks."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "daily_friction",
+      "category_name": "Quality of Life and Daily Friction",
+      "score": 6,
+      "confidence": "Low",
+      "rationale": "Uruguay likely offers smoother daily life than many lower-cost alternatives, but small-market pricing, bureaucracy, slower service culture, import costs, and Spanish-language dependence can create friction.",
+      "strengths": ["Stable civic environment.", "Good baseline infrastructure.", "Lower chaos than many high-upside countries."],
+      "weaknesses": ["Cost and import friction.", "Bureaucracy and slower service norms may frustrate some Americans."],
+      "regional_caveats": ["Daily friction differs sharply between Montevideo, premium coastal areas, and smaller inland cities."],
+      "key_metrics": [],
+      "source_notes": ["Needs more resident and official service-source review."],
+      "data_gaps": ["Collect current bureaucracy, import, delivery, repairs, water, noise, pollution, and walkability sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "exit_optionality",
+      "category_name": "Exit Options and Optionality",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay increases legal and geographic optionality through residency pathways, regional access, institutional stability, and comparatively strong banking/legal signals. It is less strong on direct global flight access and requires careful review before relying on citizenship/passport or property liquidity.",
+      "strengths": ["Official permanent residency pathway.", "Stable legal and civil-liberties environment.", "Regional Southern Cone access."],
+      "weaknesses": ["Citizenship/passport implications need specialized review.", "Property liquidity and capital movement should be verified before major commitments."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Direct permanent residency path",
+          "value": "Ministry of Interior says direct permanent residency application may be possible when criteria are met",
+          "source": "https://www.gub.uy/ministerio-interior/comunicacion/publicaciones/types-of-residencies-in-uruguay",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Residency optionality; citizenship/passport is a separate legal question."
+        }
+      ],
+      "source_notes": ["Official residency guidance reviewed."],
+      "data_gaps": ["Research citizenship, passport treatment, property liquidity, and capital-exit mechanics."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "aging_suitability",
+      "category_name": "Health, Aging, and End-of-Life Suitability",
+      "score": 7,
+      "confidence": "Low",
+      "rationale": "Uruguay's stability and healthcare baseline make it plausible for aging, especially in Montevideo, but the score needs current elder-care, home-care, disability-access, specialist, and insurance-cost data.",
+      "strengths": ["Stable environment and healthcare system.", "Calmer lifestyle may fit retirement-oriented users."],
+      "weaknesses": ["Specialist, home-care, assisted-living, and mobility costs need verification.", "Distance from U.S. family may be a practical issue."],
+      "regional_caveats": ["Montevideo likely has the best serious-care access."],
+      "key_metrics": [
+        {
+          "label": "WHO health source availability",
+          "value": "WHO Uruguay profile and health-system publications available",
+          "source": "https://www.who.int/countries/ury",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Source ecosystem signal; does not answer private elder-care cost."
+        }
+      ],
+      "source_notes": ["WHO profile reviewed."],
+      "data_gaps": ["Collect current elder-care, home-care, disability access, prescription, specialist, and chronic-care sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "supply_chain",
+      "category_name": "Import Dependence and Supply Chain Resilience",
+      "score": 5,
+      "confidence": "Low",
+      "rationale": "Uruguay's small market and import dependence can make goods, electronics, vehicles, parts, and specialty supplies costly or slower to obtain, even though basic infrastructure is strong.",
+      "strengths": ["Stable ports/logistics context relative to weaker states.", "Regional access to Argentina and Brazil may help some supply needs."],
+      "weaknesses": ["Small market limits product availability.", "Import duties, customs, and shipping costs require user-specific review."],
+      "regional_caveats": ["Montevideo likely has the best access to imported goods and services."],
+      "key_metrics": [],
+      "source_notes": ["No dedicated customs/import source pass completed."],
+      "data_gaps": ["Research customs duties, medicine availability, electronics, vehicle parts, business supplies, and Amazon/local marketplace access."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "insurance_signals",
+      "category_name": "Insurance Availability and Risk Pricing",
+      "score": 6,
+      "confidence": "Low",
+      "rationale": "Insurance is likely available in major lines, but this category needs fresh property, health, vehicle, business liability, and disaster coverage checks before it can support climate or wealth-preservation conclusions.",
+      "strengths": ["Stable institutional environment should support a functional insurance market."],
+      "weaknesses": ["No detailed current premium/exclusion review completed.", "Coastal, flood, storm, and drought-related exclusions need specific checks."],
+      "regional_caveats": ["Coastal property and rural/agricultural risks should be priced separately."],
+      "key_metrics": [],
+      "source_notes": ["Insurance scoring is provisional pending source review."],
+      "data_gaps": ["Collect health, property, car, liability, flood/storm, and claim-reliability sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "data_quality",
+      "category_name": "Data Quality and Reality Gap",
+      "score": 7,
+      "confidence": "High",
+      "rationale": "Uruguay has a relatively strong institutional source environment for a country of its size: official government portals, DGI, Ministry of Interior, MEF/BCU material, World Bank, WHO, IRENA, Freedom House, and WJP all provide useful signals. Soft relocation narratives still need to be separated from official data.",
+      "strengths": ["Good official and institutional source availability.", "Less opaque than many higher-upside destinations.", "Strong governance indicators reduce narrative fog."],
+      "weaknesses": ["Cost of living, healthcare pricing, property transaction friction, and expat experience still require fresh local research.", "Small sample anecdotal reports can distort expectations."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Official government source ecosystem",
+          "value": "Residency, tax, and macro materials available through gub.uy, DGI, MEF, and BCU-linked publications",
+          "source": "https://www.gub.uy/",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Top-level government portal; individual source URLs are listed in relevant categories."
+        }
+      ],
+      "source_notes": ["Multiple official and institutional sources reviewed in this draft."],
+      "data_gaps": ["Add more current local cost, healthcare, property, and insurance sources before marking reviewed."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "tail_risk",
+      "category_name": "Black Swan and Tail Risk",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay's low geopolitical exposure, strong institutions, renewable-heavy electricity profile, and civil liberties reduce several tail risks. Remaining risks include regional economic shocks, drought/energy stress, financial contagion, property crime, and small-market supply constraints.",
+      "strengths": ["Strong institutions and low conflict exposure.", "Renewable-heavy electricity system.", "High civil-liberties and political-stability signals."],
+      "weaknesses": ["Small open economy exposed to external shocks.", "Drought and water stress can affect energy/agriculture.", "Limited market depth can amplify supply issues."],
+      "regional_caveats": [],
+      "key_metrics": [
+        {
+          "label": "Civil/political resilience signal",
+          "value": "Freedom House Free; 96/100",
+          "source": "https://freedomhouse.org/country/uruguay/freedom-world/2025",
+          "source_tier": "Tier 2",
+          "date_accessed": "2026-06-01",
+          "notes": "Institutional resilience signal, not a guarantee under crisis."
+        },
+        {
+          "label": "Energy resilience signal",
+          "value": "100% electricity access and high renewable energy share in IRENA profile",
+          "source": "https://www.irena.org/-/media/Files/IRENA/Agency/Statistics/Statistical_Profiles/South%20America/Uruguay_South%20America_RE_SP.pdf",
+          "source_tier": "Tier 1",
+          "date_accessed": "2026-06-01",
+          "notes": "Drought and import exposure still need review."
+        }
+      ],
+      "source_notes": ["Freedom House and IRENA sources reviewed."],
+      "data_gaps": ["Add crisis-history, drought stress, banking stress, and supply-chain stress sources."],
+      "last_updated": "2026-06-01"
+    },
+    {
+      "category_id": "risk_tolerance_fit",
+      "category_name": "Risk Tolerance Fit",
+      "score": 7,
+      "confidence": "Medium",
+      "rationale": "Uruguay fits conservative-to-balanced relocation profiles better than frontier-upside profiles. It offers stability and optionality, but users chasing very low costs or high asymmetric upside may find the market too small and expensive.",
+      "strengths": ["Good fit for lower-drama relocation, wealth preservation, and family/aging profiles.", "Risks are more legible than in higher-volatility markets."],
+      "weaknesses": ["Not ideal for people seeking maximum upside, cheapness, or intensity.", "Some users may find the country too quiet or expensive."],
+      "regional_caveats": [],
+      "key_metrics": [],
+      "source_notes": ["Profile-fit assessment derived from reviewed categories."],
+      "data_gaps": ["Validate through test-stay and user profile interviews."],
+      "last_updated": "2026-06-01"
+    }
+  ],
+  "source_notes": [
+    "Researched draft uses official and institutional sources where available.",
+    "Cost of living, healthcare pricing, property transaction details, insurance, and U.S.-citizen banking still require deeper review.",
+    "This file is in_review and should not be treated as final advice."
+  ],
+  "human_review": {
+    "status": "in_review",
+    "reviewer": null,
+    "review_date": null,
+    "notes": "Human researched draft; requires final review before publication."
+  }
+}
