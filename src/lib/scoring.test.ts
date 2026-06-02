@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { CountryEvaluation } from "../types/country";
 import { weightingProfiles } from "../data/weightingProfiles";
-import { calculateWeightedScore, formatScore, getAverageConfidence, getFreshnessStatus } from "./scoring";
+import { calculateProfileBreakdown, calculateWeightedScore, formatScore, getAverageConfidence, getFreshnessStatus } from "./scoring";
 import { validateCountry } from "./validation";
 
 const baseCountry: CountryEvaluation = {
@@ -78,6 +78,18 @@ describe("scoring", () => {
 
   it("classifies known fresh dates", () => {
     expect(getFreshnessStatus("2026-06-01")).toBe("Current");
+  });
+
+  it("returns profile contribution rows without hiding missing categories", () => {
+    const profile = weightingProfiles.find((item) => item.id === "frontier_upside")!;
+    const breakdown = calculateProfileBreakdown(baseCountry, profile);
+    const costRow = breakdown.find((row) => row.categoryId === "cost_of_living")!;
+    const economyRow = breakdown.find((row) => row.categoryId === "economy_opportunity")!;
+
+    expect(costRow.contribution).toBeCloseTo(53.33, 1);
+    expect(costRow.missing).toBe(false);
+    expect(economyRow.missing).toBe(true);
+    expect(economyRow.contribution).toBeNull();
   });
 });
 

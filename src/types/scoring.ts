@@ -58,3 +58,14 @@ export interface WeightedScoreResult {
   totalWeightUsed: number;
   missingCategoryIds: CategoryId[];
 }
+
+export interface WeightedCategoryContribution {
+  categoryId: CategoryId;
+  categoryLabel: string;
+  weight: number;
+  score: number | null;
+  confidence: "Low" | "Medium" | "High" | null;
+  contribution: number | null;
+  rationale: string | null;
+  missing: boolean;
+}

@@ -1,6 +1,6 @@
 import type { CountryEvaluation, Confidence } from "../types/country";
-import type { CategoryId, WeightedScoreResult, WeightingProfile } from "../types/scoring";
-import { categoryIds } from "../data/categoryDefinitions";
+import type { CategoryId, WeightedCategoryContribution, WeightedScoreResult, WeightingProfile } from "../types/scoring";
+import { categoryIds, getCategoryDefinition } from "../data/categoryDefinitions";
 import { weightingProfiles } from "../data/weightingProfiles";
 
 const confidenceValues: Record<Confidence, number> = {
@@ -51,6 +51,32 @@ export function rankCountries(countries: CountryEvaluation[], profile: Weighting
 
 export function calculateAllProfileScores(country: CountryEvaluation) {
   return weightingProfiles.map((profile) => calculateWeightedScore(country, profile));
+}
+
+export function calculateProfileBreakdown(country: CountryEvaluation, profile: WeightingProfile): WeightedCategoryContribution[] {
+  const scoresByCategory = new Map(country.category_scores.map((score) => [score.category_id, score]));
+  const totalWeightUsed = Object.entries(profile.weights).reduce((total, [categoryId, weight]) => {
+    return scoresByCategory.has(categoryId) ? total + weight : total;
+  }, 0);
+
+  return (Object.entries(profile.weights) as [CategoryId, number][])
+    .map(([categoryId, weight]) => {
+      const categoryScore = scoresByCategory.get(categoryId);
+      const normalizedWeight = totalWeightUsed > 0 ? weight / totalWeightUsed : 0;
+      const contribution = categoryScore ? categoryScore.score * normalizedWeight * 10 : null;
+
+      return {
+        categoryId,
+        categoryLabel: getCategoryDefinition(categoryId)?.label ?? categoryId,
+        weight,
+        score: categoryScore?.score ?? null,
+        confidence: categoryScore?.confidence ?? null,
+        contribution,
+        rationale: categoryScore?.rationale ?? null,
+        missing: !categoryScore
+      };
+    })
+    .sort((a, b) => (b.contribution ?? -1) - (a.contribution ?? -1));
 }
 
 export function calculateCategoryCompletion(country: CountryEvaluation) {

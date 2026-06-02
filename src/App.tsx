@@ -1,12 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
-import { AlertTriangle, BarChart3, BookOpen, CheckCircle2, ClipboardCheck, GitCompare, Globe2, Home, Info, ListChecks, Map, Search } from "lucide-react";
+import { AlertTriangle, BarChart3, BookOpen, CheckCircle2, ClipboardCheck, ClipboardList, Compass, GitCompare, Globe2, Home, Info, ListChecks, Map, Search } from "lucide-react";
 import { categoryDefinitions } from "./data/categoryDefinitions";
 import { defaultProfileId, getWeightingProfile, weightingProfiles } from "./data/weightingProfiles";
 import { countries, getCountryBySlug, slugifyCountry } from "./lib/countryUtils";
 import { assessCountryDataQuality, rankCountriesByDataQuality } from "./lib/dataQuality";
+import { buildDiscoveryRecommendation, defaultDiscoveryAnswers, pushFactorOptions, type DiscoveryAnswers, type DiscoveryPushFactor, type DiscoveryRiskTolerance, type DiscoveryTimeHorizon } from "./lib/discovery";
+import { getResearchQueue, researchFilterOptions, summarizeResearchQueue, type ResearchFilterId, type ResearchIssueType, type ResearchPriority } from "./lib/research";
 import { calculateAllProfileScores, calculateCategoryCompletion, calculateWeightedScore, confidenceRank, formatScore, getAverageConfidence, getFreshnessStatus } from "./lib/scoring";
 import { summarizeValidation, validateCountry } from "./lib/validation";
 import type { Confidence, CountryEvaluation } from "./types/country";
+import type { CategoryId } from "./types/scoring";
 import { CategoryBarChart } from "./components/CategoryBarChart";
 import { DataQualityPanel } from "./components/DataQualityPanel";
 import { ConfidenceBadge } from "./components/ConfidenceBadge";
@@ -14,15 +17,19 @@ import { CountryCard } from "./components/CountryCard";
 import { CountryScoreTable } from "./components/CountryScoreTable";
 import { DataFreshnessBadge } from "./components/DataFreshnessBadge";
 import { ProfileSelector } from "./components/ProfileSelector";
+import { ProfileScoreCard } from "./components/ProfileScoreCard";
+import { ResearchTasksPanel } from "./components/ResearchTasksPanel";
 import { RiskBadge } from "./components/RiskBadge";
 import { ScoreBar } from "./components/ScoreBar";
 import { WeightedRankingTable } from "./components/WeightedRankingTable";
 
 const navItems = [
   { path: "/", label: "Dashboard", icon: Home },
+  { path: "/discover", label: "Discover", icon: Compass },
   { path: "/countries", label: "Countries", icon: Map },
   { path: "/rankings", label: "Rankings", icon: BarChart3 },
   { path: "/compare", label: "Compare", icon: GitCompare },
+  { path: "/research", label: "Research", icon: ClipboardList },
   { path: "/review", label: "Review", icon: ClipboardCheck },
   { path: "/methodology", label: "Methodology", icon: Info },
   { path: "/sources", label: "Sources", icon: BookOpen }
@@ -30,6 +37,22 @@ const navItems = [
 
 const categoryGroups = ["All", ...Array.from(new Set(categoryDefinitions.map((category) => category.group)))];
 const confidenceOptions: Array<"Any" | Confidence> = ["Any", "Low", "Medium", "High"];
+const researchIssueOptions: Array<"All" | ResearchIssueType> = ["All", "missing_category", "source_gap", "missing_metrics", "low_confidence", "stale"];
+const priorityOptions: Array<"All" | ResearchPriority> = ["All", "High", "Medium", "Low"];
+const discoveryDealbreakerIds: CategoryId[] = [
+  "legal_residency",
+  "safety",
+  "healthcare",
+  "cost_of_living",
+  "currency_banking",
+  "tax_treatment",
+  "property_rights",
+  "climate_resilience",
+  "civil_liberties",
+  "global_connectivity",
+  "family_suitability",
+  "digital_freedom"
+];
 
 export function App() {
   const [path, setPath] = useState(window.location.pathname);
@@ -123,9 +146,11 @@ function renderPage(
     return country ? <CountryDetailPage country={country} onNavigate={navigate} /> : <NotFoundPage onNavigate={navigate} />;
   }
 
+  if (path === "/discover") return <DiscoverPage onNavigate={navigate} />;
   if (path === "/countries") return <CountriesPage profileId={profileId} onNavigate={navigate} />;
   if (path === "/rankings") return <RankingsPage profileId={profileId} setProfileId={setProfileId} onNavigate={navigate} />;
   if (path === "/compare") return <ComparePage />;
+  if (path === "/research") return <ResearchPage onNavigate={navigate} />;
   if (path === "/review") return <ReviewPage onNavigate={navigate} />;
   if (path === "/methodology") return <MethodologyPage />;
   if (path === "/sources") return <SourcesPage />;
@@ -134,9 +159,11 @@ function renderPage(
 
 function getPageTitle(path: string) {
   if (path.startsWith("/countries/")) return "Country Detail";
+  if (path === "/discover") return "Find Your Fit";
   if (path === "/countries") return "Countries";
   if (path === "/rankings") return "Weighted Rankings";
   if (path === "/compare") return "Compare Countries";
+  if (path === "/research") return "Research Queue";
   if (path === "/review") return "Review Dashboard";
   if (path === "/methodology") return "Methodology";
   if (path === "/sources") return "Sources";
@@ -204,6 +231,200 @@ function DashboardPage({ profileId, onNavigate }: { profileId: string; onNavigat
           {countries.map((country) => (
             <CountryCard key={country.iso_code} country={country} profile={profile} onNavigate={onNavigate} />
           ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function DiscoverPage({ onNavigate }: { onNavigate: (path: string) => void }) {
+  const [answers, setAnswers] = useState<DiscoveryAnswers>(defaultDiscoveryAnswers);
+  const regions = ["All", ...Array.from(new Set(countries.map((country) => country.region)))];
+  const recommendation = buildDiscoveryRecommendation(countries, answers);
+
+  const togglePushFactor = (factor: DiscoveryPushFactor) => {
+    setAnswers((current) => {
+      const hasFactor = current.pushFactors.includes(factor);
+      const nextFactors = hasFactor
+        ? current.pushFactors.filter((item) => item !== factor)
+        : [...current.pushFactors, factor];
+      return { ...current, pushFactors: nextFactors.length > 0 ? nextFactors : current.pushFactors };
+    });
+  };
+
+  const toggleDealbreaker = (categoryId: CategoryId) => {
+    setAnswers((current) => {
+      const hasCategory = current.dealbreakers.includes(categoryId);
+      return {
+        ...current,
+        dealbreakers: hasCategory
+          ? current.dealbreakers.filter((item) => item !== categoryId)
+          : [...current.dealbreakers, categoryId]
+      };
+    });
+  };
+
+  return (
+    <div className="page-stack">
+      <section className="hero-band discover-hero">
+        <div>
+          <p className="eyebrow">
+            <Compass aria-hidden="true" size={14} />
+            Guided discovery
+          </p>
+          <h2>Start with why you might leave, then discover countries that fit.</h2>
+          <p>
+            This flow maps your pressures and dealbreakers to a weighting profile, priority categories, and a short list.
+            It is a discovery aid, not advice or a final relocation plan.
+          </p>
+        </div>
+        <div className="hero-metrics">
+          <div>
+            <strong>{recommendation.profileLabel}</strong>
+            <span>recommended lens</span>
+          </div>
+          <div>
+            <strong>{recommendation.shortlist.length}</strong>
+            <span>shortlist countries</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="discover-layout">
+        <div className="discover-form">
+          <article className="card">
+            <span className="section-label">What is pushing you to look abroad?</span>
+            <div className="option-grid">
+              {pushFactorOptions.map((option) => {
+                const selected = answers.pushFactors.includes(option.id);
+                return (
+                  <button className={selected ? "option-card active" : "option-card"} key={option.id} onClick={() => togglePushFactor(option.id)}>
+                    <strong>{option.label}</strong>
+                    <span>{option.description}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </article>
+
+          <article className="card">
+            <span className="section-label">What are your dealbreakers?</span>
+            <div className="chip-grid">
+              {discoveryDealbreakerIds.map((categoryId) => {
+                const definition = categoryDefinitions.find((category) => category.id === categoryId);
+                const selected = answers.dealbreakers.includes(categoryId);
+                return (
+                  <button className={selected ? "toggle-chip active" : "toggle-chip"} key={categoryId} onClick={() => toggleDealbreaker(categoryId)}>
+                    {definition?.label ?? categoryId}
+                  </button>
+                );
+              })}
+            </div>
+          </article>
+
+          <article className="filter-panel discover-controls">
+            <label>
+              <span className="section-label">Risk tolerance</span>
+              <select value={answers.riskTolerance} onChange={(event) => setAnswers({ ...answers, riskTolerance: event.target.value as DiscoveryRiskTolerance })}>
+                <option value="low">Low: prioritize stability</option>
+                <option value="medium">Medium: tradeoffs are acceptable</option>
+                <option value="high">High: frontier upside is okay</option>
+              </select>
+            </label>
+            <label>
+              <span className="section-label">Time horizon</span>
+              <select value={answers.timeHorizon} onChange={(event) => setAnswers({ ...answers, timeHorizon: event.target.value as DiscoveryTimeHorizon })}>
+                <option value="test_stay">1-3 month test stay</option>
+                <option value="one_year">One-year base</option>
+                <option value="five_years">Five-year plan</option>
+                <option value="decade_plus">10+ year hedge</option>
+              </select>
+            </label>
+            <label>
+              <span className="section-label">Region</span>
+              <select value={answers.preferredRegion} onChange={(event) => setAnswers({ ...answers, preferredRegion: event.target.value })}>
+                {regions.map((region) => (
+                  <option key={region} value={region}>
+                    {region}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </article>
+        </div>
+
+        <aside className="discover-results">
+          <article className="card recommendation-card">
+            <span className="section-label">Recommended profile</span>
+            <h2>{recommendation.profileLabel}</h2>
+            <p>{recommendation.profileReason}</p>
+            <button className="secondary-button" onClick={() => onNavigate("/rankings")}>
+              Open rankings
+            </button>
+          </article>
+
+          <article className="card">
+            <span className="section-label">Priority categories</span>
+            <div className="priority-category-list">
+              {recommendation.priorityCategories.map((category) => (
+                <div key={category.categoryId}>
+                  <strong>{category.label}</strong>
+                  <p>{category.reason}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+        </aside>
+      </section>
+
+      <section>
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Suggested shortlist</p>
+            <h2>Countries to inspect next</h2>
+            <p>These are ranked from the selected profile, adjusted for your dealbreakers and risk tolerance.</p>
+          </div>
+        </div>
+        <div className="shortlist-grid">
+          {recommendation.shortlist.length > 0 ? recommendation.shortlist.map((item, index) => (
+            <article className="card shortlist-card" key={item.country.iso_code}>
+              <div className="shortlist-rank">
+                <span>#{index + 1}</span>
+                {item.overlooked ? <span className="badge freshness">May be overlooked</span> : null}
+              </div>
+              <h3>{item.country.country}</h3>
+              <div className="score-pill inline-score">
+                <strong>{formatScore(item.score)}</strong>
+                <span>fit score</span>
+              </div>
+              <p>{item.fitReason}</p>
+              <div className="tag-row">
+                {item.caveats.map((caveat) => (
+                  <RiskBadge key={caveat} label={caveat} />
+                ))}
+              </div>
+              <button className="text-button" onClick={() => onNavigate(`/countries/${slugifyCountry(item.country.country)}`)}>
+                Inspect evidence
+              </button>
+            </article>
+          )) : (
+            <article className="card empty-state">
+              <span className="section-label">No shortlist</span>
+              <p>No countries match the current region filter. Try All regions.</p>
+            </article>
+          )}
+        </div>
+      </section>
+
+      <section className="callout">
+        <AlertTriangle aria-hidden="true" size={18} />
+        <div>
+          <strong>Discovery caveats</strong>
+          <ul>
+            {recommendation.warnings.map((warning) => (
+              <li key={warning}>{warning}</li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>
@@ -315,6 +536,7 @@ function CountryDetailPage({ country, onNavigate }: { country: CountryEvaluation
   const profileScores = calculateAllProfileScores(country);
   const completion = calculateCategoryCompletion(country);
   const validationIssues = validateCountry(country);
+  const [evidenceFilter, setEvidenceFilter] = useState<ResearchFilterId>("all");
 
   return (
     <div className="page-stack">
@@ -344,18 +566,12 @@ function CountryDetailPage({ country, onNavigate }: { country: CountryEvaluation
       <section className="profile-score-grid">
         {profileScores.map((result) => {
           const profile = getWeightingProfile(result.profileId);
-          return (
-            <article className="metric-card" key={profile.id}>
-              <span>{profile.label}</span>
-              <strong>{formatScore(result.score)}</strong>
-              <ScoreBar value={result.score} compact />
-              <small>{Math.round(result.completionRate * 100)}% complete</small>
-            </article>
-          );
+          return <ProfileScoreCard country={country} key={profile.id} profile={profile} result={result} />;
         })}
       </section>
 
       <DataQualityPanel country={country} />
+      <ResearchTasksPanel country={country} />
 
       <section className="detail-grid">
         <SummaryList title="Major Strengths" items={country.major_strengths} tone="positive" />
@@ -398,9 +614,125 @@ function CountryDetailPage({ country, onNavigate }: { country: CountryEvaluation
           <div>
             <p className="eyebrow">Category evidence</p>
             <h2>Scores, rationales, and caveats</h2>
+            <p>Filter the category evidence by research status to focus on source gaps, missing metrics, stale categories, or Low confidence scores.</p>
           </div>
         </div>
-        <CountryScoreTable country={country} />
+        <div className="research-filter-row">
+          {researchFilterOptions.map((option) => (
+            <button
+              className={evidenceFilter === option.id ? "toggle-chip active" : "toggle-chip"}
+              key={option.id}
+              onClick={() => setEvidenceFilter(option.id)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        <CountryScoreTable country={country} filter={evidenceFilter} />
+      </section>
+    </div>
+  );
+}
+
+function ResearchPage({ onNavigate }: { onNavigate: (path: string) => void }) {
+  const [countryFilter, setCountryFilter] = useState("All");
+  const [issueFilter, setIssueFilter] = useState<"All" | ResearchIssueType>("All");
+  const [priorityFilter, setPriorityFilter] = useState<"All" | ResearchPriority>("All");
+  const queue = getResearchQueue(countries);
+  const summary = summarizeResearchQueue(queue);
+  const filteredQueue = queue.filter((task) => {
+    if (countryFilter !== "All" && task.isoCode !== countryFilter) return false;
+    if (issueFilter !== "All" && task.type !== issueFilter) return false;
+    if (priorityFilter !== "All" && task.priority !== priorityFilter) return false;
+    return true;
+  });
+
+  return (
+    <div className="page-stack">
+      <PageIntro
+        title="Research Queue"
+        copy="This page turns country data gaps into an editorial work queue. It does not change scores; it shows what evidence needs attention next."
+      />
+
+      <section className="review-metrics">
+        <article className="metric-card">
+          <span>Open tasks</span>
+          <strong>{queue.length}</strong>
+          <small>{summary.high} high priority</small>
+        </article>
+        <article className="metric-card">
+          <span>Source gaps</span>
+          <strong>{summary.sourceGaps}</strong>
+          <small>need stronger evidence</small>
+        </article>
+        <article className="metric-card">
+          <span>Missing metrics</span>
+          <strong>{summary.missingMetrics}</strong>
+          <small>need structured citations</small>
+        </article>
+        <article className="metric-card">
+          <span>Low confidence</span>
+          <strong>{summary.lowConfidence}</strong>
+          <small>need review before upgrade</small>
+        </article>
+      </section>
+
+      <section className="filter-panel">
+        <label>
+          <span className="section-label">Country</span>
+          <select value={countryFilter} onChange={(event) => setCountryFilter(event.target.value)}>
+            <option value="All">All</option>
+            {countries.map((country) => (
+              <option key={country.iso_code} value={country.iso_code}>
+                {country.country}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          <span className="section-label">Issue Type</span>
+          <select value={issueFilter} onChange={(event) => setIssueFilter(event.target.value as "All" | ResearchIssueType)}>
+            {researchIssueOptions.map((issue) => (
+              <option key={issue} value={issue}>
+                {formatResearchLabel(issue)}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          <span className="section-label">Priority</span>
+          <select value={priorityFilter} onChange={(event) => setPriorityFilter(event.target.value as "All" | ResearchPriority)}>
+            {priorityOptions.map((priority) => (
+              <option key={priority} value={priority}>
+                {priority}
+              </option>
+            ))}
+          </select>
+        </label>
+      </section>
+
+      <p className="result-note">
+        Showing {filteredQueue.length} of {queue.length} research tasks.
+      </p>
+
+      <section className="task-list research-queue-list">
+        {filteredQueue.map((task) => (
+          <article className="task-row" key={task.id}>
+            <div>
+              <div className="task-meta-line">
+                <span className={`priority priority-${task.priority.toLowerCase()}`}>{task.priority}</span>
+                <span className="badge freshness">{task.country}</span>
+                <span className="badge completion">{formatResearchLabel(task.type)}</span>
+              </div>
+              <strong>{task.title}</strong>
+              <p>{task.detail}</p>
+              <small>{task.group} / {task.categoryLabel}</small>
+            </div>
+            <button className="secondary-button" onClick={() => onNavigate(`/countries/${slugifyCountry(task.country)}`)}>
+              Open country
+            </button>
+          </article>
+        ))}
       </section>
     </div>
   );
@@ -817,6 +1149,14 @@ function SummaryList({ title, items, tone }: { title: string; items: string[]; t
       </ul>
     </article>
   );
+}
+
+function formatResearchLabel(value: string) {
+  if (value === "All") return "All";
+  return value
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 function NotFoundPage({ onNavigate }: { onNavigate: (path: string) => void }) {

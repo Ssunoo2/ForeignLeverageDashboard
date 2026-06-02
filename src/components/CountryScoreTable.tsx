@@ -1,22 +1,24 @@
 import type { CountryEvaluation } from "../types/country";
 import { getCategoryDefinition } from "../data/categoryDefinitions";
+import { categoryMatchesResearchFilter, type ResearchFilterId } from "../lib/research";
 import { ConfidenceBadge } from "./ConfidenceBadge";
 import { ScoreBar } from "./ScoreBar";
 
 interface CountryScoreTableProps {
   country: CountryEvaluation;
+  filter?: ResearchFilterId;
 }
 
-export function CountryScoreTable({ country }: CountryScoreTableProps) {
+export function CountryScoreTable({ country, filter = "all" }: CountryScoreTableProps) {
   const scores = [...country.category_scores].sort((a, b) => {
     const groupA = getCategoryDefinition(a.category_id)?.group ?? "Fit";
     const groupB = getCategoryDefinition(b.category_id)?.group ?? "Fit";
     return `${groupA}-${a.category_name}`.localeCompare(`${groupB}-${b.category_name}`);
-  });
+  }).filter((category) => categoryMatchesResearchFilter(category, filter));
 
   return (
     <div className="score-table-list">
-      {scores.map((category) => (
+      {scores.length > 0 ? scores.map((category) => (
         <article className="score-row" key={category.category_id}>
           <div className="score-row-main">
             <div>
@@ -95,7 +97,12 @@ export function CountryScoreTable({ country }: CountryScoreTableProps) {
             </ul>
           </div>
         </article>
-      ))}
+      )) : (
+        <article className="card empty-state">
+          <span className="section-label">No categories match this filter</span>
+          <p>Try a broader research filter to inspect more category evidence.</p>
+        </article>
+      )}
     </div>
   );
 }
