@@ -3,6 +3,13 @@
   "iso_code": "PRY",
   "region": "South America",
   "subregion": "Interior South America",
+  "hero_image": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Asunci%C3%B3n%20night%20skyline%201.jpg?width=1600",
+    "alt": "Night skyline of downtown Asunción, Paraguay",
+    "credit": "Cmasi",
+    "license": "CC BY-SA 4.0 via Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Asunci%C3%B3n_night_skyline_1.jpg"
+  },
   "evaluation_date": "2026-06-01",
   "evaluated_by": "Demo placeholder data for UI development; not researched scoring",
   "overall_summary": "Demo thesis: Paraguay is represented as a low-cost, high-optionality frontier candidate with weaker infrastructure, healthcare, and data-confidence signals. This is sample data for interface development only.",

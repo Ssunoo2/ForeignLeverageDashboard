@@ -31,6 +31,13 @@ export interface CountryEvaluation {
   iso_code: string;
   region: string;
   subregion: string;
+  hero_image?: {
+    url: string;
+    alt: string;
+    credit: string;
+    license: string;
+    source_url: string;
+  };
   evaluation_date: string;
   evaluated_by: string;
   overall_summary: string;

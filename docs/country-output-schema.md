@@ -25,6 +25,13 @@ The dashboard should render country pages from this structure. Future Python/API
   "iso_code": "ARG",
   "region": "South America",
   "subregion": "Southern Cone",
+  "hero_image": {
+    "url": "https://example.com/image.jpg",
+    "alt": "Human-readable image description.",
+    "credit": "Photographer or source.",
+    "license": "License label.",
+    "source_url": "https://example.com/source-page"
+  },
   "evaluation_date": "2026-06-01",
   "evaluated_by": "LLM + human review",
   "overall_summary": "Short thesis for the country.",

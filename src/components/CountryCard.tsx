@@ -20,6 +20,17 @@ export function CountryCard({ country, profile, onNavigate }: CountryCardProps) 
 
   return (
     <article className="card country-card">
+      {country.hero_image ? (
+        <figure className="country-card-image">
+          <img src={country.hero_image.url} alt={country.hero_image.alt} loading="lazy" />
+          <figcaption>
+            <a href={country.hero_image.source_url} target="_blank" rel="noreferrer">
+              {country.hero_image.credit}
+            </a>
+          </figcaption>
+        </figure>
+      ) : null}
+
       <div className="country-card-header">
         <div>
           <p className="eyebrow">

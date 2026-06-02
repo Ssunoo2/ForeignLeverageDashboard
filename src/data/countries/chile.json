@@ -3,6 +3,13 @@
   "iso_code": "CHL",
   "region": "South America",
   "subregion": "Southern Cone / Pacific Coast",
+  "hero_image": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Skyline%20of%20Santiago%2C%20Chile.jpg?width=1600",
+    "alt": "Skyline of Santiago, Chile with mountains in the background",
+    "credit": "Pablo García Saldaña",
+    "license": "CC0 via Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Skyline_of_Santiago,_Chile.jpg"
+  },
   "evaluation_date": "2026-06-01",
   "evaluated_by": "Demo placeholder data for UI development; not researched scoring",
   "overall_summary": "Demo thesis: Chile is represented as a comparatively capable infrastructure and institutions candidate with climate-region tradeoffs and moderate costs. This is sample data for interface development only.",

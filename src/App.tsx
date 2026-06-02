@@ -545,6 +545,19 @@ function CountryDetailPage({ country, onNavigate }: { country: CountryEvaluation
       </button>
 
       <section className="detail-header">
+        {country.hero_image ? (
+          <figure className="detail-hero-image">
+            <img src={country.hero_image.url} alt={country.hero_image.alt} />
+            <figcaption>
+              Image:{" "}
+              <a href={country.hero_image.source_url} target="_blank" rel="noreferrer">
+                {country.hero_image.credit}
+              </a>
+              {" / "}
+              {country.hero_image.license}
+            </figcaption>
+          </figure>
+        ) : null}
         <div>
           <p className="eyebrow">{country.region} / {country.subregion}</p>
           <h2>{country.country}</h2>
